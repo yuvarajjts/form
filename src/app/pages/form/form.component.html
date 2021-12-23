@@ -1,0 +1,227 @@
+
+<form (ngSubmit)="onsubmit()" [formGroup]="personForm">
+<div class="container">
+<div class="row" *ngFor="let obj of dataarray; let i=index">
+  <div class="form-group col-lg-4" *ngIf="i==0">
+    <mat-form-field appearance="outline"  class="example-full-width">
+      <mat-label>Primary Person Name</mat-label>
+      <input matInput placeholder="Placeholder" formControlName="name"  name="name{{i}}" [(ngModel)]="obj.name">
+    
+    </mat-form-field>
+  </div>
+
+  <div class="form-group col-md-4" *ngIf="i==0">
+    <mat-form-field appearance="outline"  class="example-full-width">
+      <mat-label>Primary Person Name</mat-label>
+      <input matInput placeholder="Placeholder" formControlName="lname" name="lname{{i}}" [(ngModel)]="obj.lname">
+    </mat-form-field>
+  </div>
+</div>
+<!-- alias name section -->
+<div class="row" *ngFor="let obj of dataarray; let i=index">
+<div class="form-group col-md-4" *ngIf="i!=0">
+  <mat-form-field appearance="outline"  >
+    <mat-label>Alias Name {{i + 0}}</mat-label>
+    <input matInput placeholder="Placeholder" formControlName="alias"  name="alias{{i}}" [(ngModel)]="obj.alias">
+    
+   
+  </mat-form-field>
+  
+
+  <mat-icon (click)="removeForm(i) " *ngIf="i!=0" slot="end" title="Remove"  color="accent" name="remove-circle-outline">remove_circle</mat-icon>           
+	
+</div>
+<!-- alias name section -->
+</div>
+
+<button mat-raised-button color="primary" (click)="addForm()" >Add Alias Name</button>
+
+<br><br>
+
+<!-- address name section -->
+<div class="row" *ngFor="let obj of dataarray; let i=index" >
+  
+  <div class="col-lg-8"  *ngIf="i==0">
+      <mat-form-field  class="example-full-width" appearance="outline">
+        <mat-label>Primary Person Address</mat-label>
+        <textarea matInput  placeholder="Primary Person Address" style="width:100%" formControlName="address" name="address{{i}}" [(ngModel)]="obj.address"></textarea>
+      </mat-form-field>
+  </div>
+  <div class="col-lg-4"> </div> 
+  <div class="col-lg-2">
+  
+  </div> 
+  <div class="col-lg-6">
+    
+  </div> 
+
+ 
+</div>
+
+      
+  
+  <div class="row" *ngFor="let obj of adataarray; let i=index">
+  
+      <div class="col-lg-4" *ngIf="i!=0">
+       <mat-form-field class="example-full-width" appearance="outline">
+         <input matInput placeholder="Adress Label "   name="addresslabel{{i}}" formControlName="addresslabel" [(ngModel)]="obj.addresslabel">
+       </mat-form-field>
+       </div>
+       
+    <div class="col-lg-4" *ngIf="i!=0" >
+      <mat-form-field class="example-full-width"  appearance="outline">
+       <textarea matInput placeholder="Address Text" name="addresstext{{i}}" formControlName="addresstext" [(ngModel)]="obj.addresstext"></textarea>  
+      </mat-form-field>
+      
+   </div>
+   <mat-icon (click)=" aremoveForm(i) " *ngIf="i!=0" title="Remove" class="maticon" color="accent" name="remove-circle-outline">remove_circle  </mat-icon>           
+	
+  <!-- address name section -->
+</div>
+<br>
+ 
+<div class="row" *ngFor="let obj of cdataarray; let i=index" >
+<div class="col-lg-4" *ngIf="i!=0" >
+<mat-form-field class="example-full-width" appearance="outline">
+  <mat-label>Pervious Case</mat-label>
+  <mat-select  name="case{{i}}"  [(ngModel)]="obj.case">
+    <mat-option *ngFor="let case of cases" [value]="case.value">
+      {{case.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+
+<div class="col-lg-4" *ngIf="i!=0" >
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Case Status</mat-label>
+    <mat-select  name="status{{i}}"  [(ngModel)]="obj.status">
+      <mat-option *ngFor="let case of cases" [value]="case.value">
+        {{case.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  </div>
+  <mat-icon (click)="cremoveForm(i) " *ngIf="i!=0" class="maticon" title="Remove"  color="accent" name="remove-circle-outline">remove_circle</mat-icon>           
+	
+</div>
+<button mat-raised-button color="primary" (click)=" aaddForm()" >Add Alternate Address</button>
+<button mat-raised-button  style="margin-left:20px ;" color="primary" (click)=" caddForm()" >Add Case History</button>
+
+
+<!-- screem 22222222222222222222 -->
+<div class="row" *ngFor="let obj of imgdataarray; let i=index" >
+  <div class="col-lg-4">
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Primary Person Type</mat-label>
+      <mat-select  name="ptype{{i}}"  [(ngModel)]="obj.ptype">
+        <mat-option *ngFor="let case of cases" [value]="case.value">
+          {{case.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+   
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>History Sheet No</mat-label>
+      <input matInput placeholder="Placeholder" formControlName="history" name="history{{i}}" [(ngModel)]="obj.history" name="salary">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Current Status</mat-label>
+      <mat-select name="cstatus{{i}}" [(ngModel)]="obj.cstatus">
+        <mat-option *ngFor="let case of cases" [value]="case.value">
+          {{case.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="col-lg-6">
+   
+    <mat-form-field  class="example-full-width" appearance="outline">
+      <mat-label>Current Activity</mat-label>
+      <textarea matInput formControlName="activity" rows="16" placeholder="Primary Person Address" style="width:80%"  name="activity{{i}}" [(ngModel)]="obj.activity"></textarea>
+    </mat-form-field>
+</div>
+<mat-form-field  style="width: 80%;" appearance="outline">
+  <mat-label>Modus Operations</mat-label>
+  <textarea matInput  rows="16" placeholder="Primary Person Address" formControlName="modus" name="modus{{i}}" [(ngModel)]="obj.modus"></textarea>
+</mat-form-field>
+</div>
+
+
+<div class="row" *ngFor="let obj of rdataarray; let i=index" >
+  <div class="col-lg-4">
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Gang Name</mat-label>
+      <mat-select name="gang{{i}}" [(ngModel)]="obj.gang">
+        <mat-option *ngFor="let case of cases" [value]="case.value">
+          {{case.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="col-lg-4">
+     <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label> Rival Gang Name</mat-label>
+      <mat-select name="ruval{{i}}" [(ngModel)]="obj.rival">
+        <mat-option *ngFor="let case of cases" [value]="case.value">
+          {{case.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    
+</div> 
+
+<mat-icon (click)="rremoveForm(i) " *ngIf="i!=0" class="maticon" title="Remove"  color="accent" name="remove-circle-outline">remove_circle</mat-icon>           
+	
+</div>
+<div class="row">
+  <div class="col-lg-5">
+
+  </div>
+  <div class="col-lg-5">
+    <button mat-raised-button color="primary"  (click)="raddForm()" >Add Alias Name</button>
+  </div>
+</div>
+
+<br>
+<div class="row" *ngFor="let obj of imgdataarray; let i=index" >
+  <div class="col-lg-5">
+    <input #file type="file" accept='image/*' (change)="onselectfile($event)" name="imgs{{i}}" [(ngModel)]="obj.imgs"/>
+  <img [src]="url" height="200" >
+  </div>
+
+  <div class="col-lg-5">
+   
+    <button mat-raised-button (click)="fileInput.click()">Add Media</button>
+
+    <input style="display: none"  #attachments type="file" (change)="onFileChanged($event)" #fileInput multiple="true" name="addimg{{i}}" [(ngModel)]="obj.addimg">
+    
+    <div *ngFor="let selected of listOfFiles;let index = index">
+      <h3>{{selected}}</h3>
+      <mat-icon color="accent" (click)="removeSelectedFile(index)">remove_circle</mat-icon>
+      
+    </div>
+  </div>
+</div></div>
+
+
+
+
+
+<!-- container -->
+<br><br>
+<button mat-raised-button color="primary"  class="sub">Submit</button>
+
+</form>
+
+
+
+
+ 

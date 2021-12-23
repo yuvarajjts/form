@@ -1,0 +1,42 @@
+.container {
+  width: 100% !important;
+  /* margin: 3%; */
+  margin-top: 5%;
+  margin-left: 16% !important;
+}
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+
+  .chooseimg{
+     width: 10%; 
+     height: 10%; 
+     object-fit: contain; 
+     
+  }  
+
+  .maticon{
+    margin:18px;
+  }
+
+  .sub{
+    width: 10%;
+    margin-left: 41%;
+    margin-right: 25%;
+    margin-bottom: 10%;
+    margin-top: 3%;
+  }
